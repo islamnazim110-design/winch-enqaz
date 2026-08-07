@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🚛 خدماتنا | المستشار لإنقاذ السيارات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --brand: #FF4500; --brand-dark: #cc3700; --dark-bg: #0b1320; --card-bg: #152238; --text-light: #e2e8f0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Cairo", sans-serif; background-color: var(--dark-bg); color: #fff; line-height: 1.7; overflow-x: hidden; }
+    a { text-decoration: none; }
+    ul { list-style: none; padding: 0; margin: 0; }
+
+    .top-bar { background: #000; color: #fff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 14px; border-bottom: 2px solid var(--brand); }
+    .top-bar .info span { margin-left: 15px; }
+    .top-bar .info i { color: var(--brand); margin-left: 5px; }
+
+    header { background: rgba(11, 19, 32, 0.95); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-wrap: wrap; gap: 15px; }
+    .logo { font-size: 28px; font-weight: 900; color: #fff; direction: ltr; }
+    .logo span { color: var(--brand); }
+    
+    nav { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; justify-content: center; width: 100%; }
+    nav a { color: #fff; padding: 8px 12px; font-weight: 600; font-size: 15px; transition: 0.3s; border-radius: 5px;}
+    nav a:hover { color: var(--brand); background: rgba(255, 69, 0, 0.1); }
+    .nav-btn { background: var(--brand); padding: 8px 20px; border-radius: 30px; font-weight: bold; color: #fff !important; }
+
+    .promo-banner { background: linear-gradient(45deg, #FF4500, #ff8c00); color: #fff; text-align: center; padding: 12px 15px; font-size: 19px; font-weight: 900; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4); animation: pulsePromo 2s infinite; position: relative; z-index: 999; }
+    @keyframes pulsePromo { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .promo-banner span { background: #fff; color: var(--brand); padding: 3px 10px; border-radius: 5px; margin: 0 5px; display: inline-block; transform: scale(1.1); }
+
+    .page-header { background: linear-gradient(rgba(11,19,32,0.8), rgba(11,19,32,0.9)), url('images/2.jpeg') center/cover; padding: 100px 20px; text-align: center; border-bottom: 4px solid var(--brand); }
+    .page-header h1 { font-size: 45px; color: var(--brand); font-weight: 900; margin-bottom: 10px; }
+    .page-header p { font-size: 20px; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+
+    .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+    
+    .service-row { display: flex; gap: 40px; margin-bottom: 60px; background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 69, 0, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.4); align-items: center;}
+    .service-row.reverse { flex-direction: row-reverse; }
+    .service-content { padding: 40px; width: 50%; }
+    .service-content h2 { font-size: 30px; color: var(--brand); margin-bottom: 15px; font-weight: 800; }
+    .service-content p { font-size: 18px; color: var(--text-light); margin-bottom: 20px; }
+    .service-content ul li { margin-bottom: 10px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+    .service-content ul li i { color: #25D366; }
+    
+    .img-wrapper { position: relative; width: 50%; height: 400px; }
+    .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .watermark { position: absolute; bottom: 15px; right: 15px; background: rgba(11, 19, 32, 0.9); border-right: 4px solid var(--brand); padding: 10px 20px; border-radius: 8px; color: #fff; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+    .watermark strong { color: var(--brand); font-size: 24px; font-weight: 900; direction: ltr; }
+    .watermark span { font-size: 14px; font-weight: bold; }
+
+    .cta-btn { display: inline-block; margin-top: 20px; background: var(--brand); color: #fff; padding: 12px 30px; border-radius: 30px; font-weight: bold; font-size: 18px; transition: 0.3s; }
+    .cta-btn:hover { background: #fff; color: var(--brand); }
+
+    footer { background: #050a12; padding: 60px 5% 20px; border-top: 3px solid var(--brand); color: var(--text-light); margin-top: 80px; direction: rtl; text-align: right; }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .footer-col h3 { color: var(--brand); font-size: 24px; margin-bottom: 20px; font-weight: 800; }
+    .footer-col p { color: var(--text-light); font-size: 16px; line-height: 1.8; }
+    .footer-col ul li { margin-bottom: 15px; font-size: 16px; display: flex; align-items: center; gap: 10px; }
+    .footer-col ul li a { color: var(--text-light); transition: 0.3s; }
+    .footer-col ul li a:hover { color: var(--brand); padding-right: 8px; }
+    .footer-col ul li i { color: var(--brand); font-size: 18px; }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; color: #888; font-size: 14px; }
+
+    .floating-buttons { position: fixed; left: 20px; bottom: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; align-items: flex-start;}
+    .float-btn { height: 60px; border-radius: 50px; display: flex; justify-content: center; align-items: center; color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.5); transition: 0.3s; border: 2px solid rgba(255,255,255,0.2);}
+    .float-wa { width: 60px; font-size: 28px; background: #25D366; }
+    .float-call { padding: 0 25px; font-size: 22px; background: var(--brand); font-weight: 900; gap: 10px; width: auto; }
+    .float-call span { direction: ltr; letter-spacing: 1px; }
+    .float-btn:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.8);}
+
+    @media (max-width: 900px) {
+      .service-row, .service-row.reverse { flex-direction: column; }
+      .service-content, .img-wrapper { width: 100%; }
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="info">
+      <span><i class="fa-solid fa-clock"></i> جاهزون للإنقاذ 24/7</span>
+      <span><i class="fa-solid fa-location-dot"></i> أسطول ضخم يغطي كافة المحاور الرئيسية</span>
+    </div>
+    <div class="info">
+      <span><i class="fa-solid fa-phone"></i> طوارئ الطرق: 01037426603</span>
+    </div>
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">winch-<span>enqaz</span>.com</a>
+    <nav>
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="about.html">👨‍💼 من نحن</a>
+      <a href="services.html">🚛 خدماتنا</a>
+      <a href="areas.html">📍 المناطق التي نغطيها</a>
+      <a href="prices.html">💰 الأسعار</a>
+      <a href="gallery.html">🖼 معرض الأعمال</a>
+      <a href="reviews.html">⭐ آراء العملاء</a>
+      <a href="faq.html">❓ الأسئلة الشائعة</a>
+      <a href="contact.html">💬 تواصل معنا</a>
+      <a href="tel:01037426603" class="nav-btn">📞 اتصل الآن</a>
+    </nav>
+  </header>
+
+  <div class="promo-banner">
+    🔥 عرض حصري لفترة محدودة: <span>خصم 35%</span> لأول 100 عميل في كل منطقة! ⏳
+  </div>
+
+  <div class="page-header">
+    <h1>باقة خدماتنا الشاملة</h1>
+    <p>حلول إنقاذ متكاملة تم تصميمها لتلبية كافة احتياجات الأفراد والشركات بأعلى مستويات الاحترافية والأمان.</p>
+  </div>
+
+  <div class="container">
+    
+    <!-- الخدمة الأولى -->
+    <div class="service-row">
+      <div class="img-wrapper">
+        <img src="images/2.png" alt="إنقاذ سيارات ملاكي">
+        <div class="watermark">
+          <strong>01037426603</strong>
+          <span>winch-enqaz.com</span>
+        </div>
+      </div>
+      <div class="service-content">
+        <h2>إنقاذ وقطر السيارات الملاكي</h2>
+        <p>نحن نتفهم الإحباط الذي يصاحب تعطل سيارتك فجأة. لذلك، صممنا خدمة الإنقاذ السريع للسيارات الملاكي لتكون المنقذ الأول لك.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> سحب السيارات المعطلة لأقرب مركز صيانة.</li>
+          <li><i class="fa-solid fa-check"></i> رفع سيارات الحوادث بعناية فائقة لعدم تفاقم الضرر.</li>
+          <li><i class="fa-solid fa-check"></i> التعامل مع كافة أنواع السيارات (سيدان، هاتشباك، 4x4).</li>
+        </ul>
+        <a href="tel:01037426603" class="cta-btn"><i class="fa-solid fa-phone"></i> اطلب الخدمة الآن</a>
+      </div>
+    </div>
+
+    <!-- الخدمة الثانية -->
+    <div class="service-row reverse">
+      <div class="img-wrapper">
+        <img src="images/3.png" alt="نقل سيارات فارهة">
+        <div class="watermark">
+          <strong>01037426603</strong>
+          <span>winch-enqaz.com</span>
+        </div>
+      </div>
+      <div class="service-content">
+        <h2>نقل السيارات الفارهة والرياضية (VIP)</h2>
+        <p>السيارات ذات القيمة العالية أو ذات الخلوص الأرضي المنخفض (الرياضية) تتطلب معدات وتقنيات خاصة جداً في الرفع.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> أوناش بهيكل هيدروليكي كامل (زاوية ميل شبه معدومة).</li>
+          <li><i class="fa-solid fa-check"></i> أحزمة شد مخصصة للإطارات لعدم المساس بالهيكل أو العفشة.</li>
+          <li><i class="fa-solid fa-check"></i> أقصى درجات التأمين والسرية التامة للعملاء.</li>
+        </ul>
+        <a href="tel:01037426603" class="cta-btn"><i class="fa-solid fa-phone"></i> اطلب الخدمة الآن</a>
+      </div>
+    </div>
+
+    <!-- الخدمة الثالثة -->
+    <div class="service-row">
+      <div class="img-wrapper">
+        <img src="images/20.jpeg" alt="نقل معدات ثقيلة">
+        <div class="watermark">
+          <strong>01037426603</strong>
+          <span>winch-enqaz.com</span>
+        </div>
+      </div>
+      <div class="service-content">
+        <h2>أوناش النقل والمعدات الخفيفة</h2>
+        <p>كيان المستشار مجهز تماماً لدعم الشركات والمصانع من خلال أسطول قوي قادر على قطر الحمولات الأكبر.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> نقل الميكروباصات وسيارات الفان.</li>
+          <li><i class="fa-solid fa-check"></i> سحب سيارات النصف نقل بجميع حمولاتها.</li>
+          <li><i class="fa-solid fa-check"></i> نقل المعدات الخفيفة والآلات بين مواقع العمل.</li>
+        </ul>
+        <a href="tel:01037426603" class="cta-btn"><i class="fa-solid fa-phone"></i> اطلب الخدمة الآن</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>المستشار | winch-enqaz.com</h3>
+        <p>الكيان الأضخم في مصر لإنقاذ ونقل السيارات. نعمل بشعار "أمان سيارتك هو مسؤوليتنا الأولى". أسطول متكامل لحل كافة طوارئ الطرق بأعلى درجات الاحترافية.</p>
+      </div>
+      <div class="footer-col">
+        <h3>الروابط الهامة</h3>
+        <ul>
+          <li><i class="fa-solid fa-angle-left"></i> <a href="index.html">الرئيسية</a></li>
+          <li><i class="fa-solid fa-angle-left"></i> <a href="services.html">خدمات الطوارئ</a></li>
+          <li><i class="fa-solid fa-angle-left"></i> <a href="prices.html">قائمة الأسعار</a></li>
+          <li><i class="fa-solid fa-angle-left"></i> <a href="areas.html">خريطة التغطية</a></li>
+          <li><i class="fa-solid fa-angle-left"></i> <a href="contact.html">الدعم الفني والاتصال</a></li>
+          <li><i class="fa-solid fa-angle-left"></i> <a href="privacy-policy.html">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>غرفة عمليات الطوارئ</h3>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> الخط الساخن: <span dir="ltr">01037426603</span></li>
+          <li><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> واتساب: <span dir="ltr">01037426603</span></li>
+          <li><i class="fa-solid fa-map-location-dot"></i> تغطية شاملة بالقاهرة، الجيزة، والطرق الإقليمية</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 جميع الحقوق محفوظة لمنظومة المستشار (winch-enqaz.com) للإنقاذ السريع.
+    </div>
+  </footer>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/201037426603" class="float-btn float-wa" target="_blank" title="تواصل واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:01037426603" class="float-btn float-call" title="اتصل الآن"><i class="fa-solid fa-phone"></i> <span dir="ltr">01037426603</span></a>
+  </div>
+
+</body>
+</html>

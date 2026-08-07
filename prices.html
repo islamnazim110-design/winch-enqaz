@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>📍 نطاق التغطية | المستشار لإنقاذ السيارات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --brand: #FF4500; --brand-dark: #cc3700; --dark-bg: #0b1320; --card-bg: #152238; --text-light: #e2e8f0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Cairo", sans-serif; background-color: var(--dark-bg); color: #fff; line-height: 1.7; overflow-x: hidden; }
+    
+    /* الهيدر والقائمة */
+    header { background: rgba(11, 19, 32, 0.95); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-wrap: wrap; gap: 15px; }
+    .logo { font-size: 28px; font-weight: 900; color: #fff; text-decoration: none; direction: ltr; }
+    .logo span { color: var(--brand); }
+    nav { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; justify-content: center; width: 100%; }
+    nav a { color: #fff; text-decoration: none; padding: 8px 12px; font-weight: 600; font-size: 15px; transition: 0.3s; border-radius: 5px;}
+    nav a:hover { color: var(--brand); background: rgba(255, 69, 0, 0.1); }
+    .nav-btn { background: var(--brand); padding: 8px 20px; border-radius: 30px; font-weight: bold; color: #fff !important; }
+
+    /* شريط العروض والخصومات */
+    .promo-banner {
+      background: linear-gradient(45deg, #FF4500, #ff8c00); color: #fff; text-align: center; padding: 12px 15px; font-size: 19px; font-weight: 900; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4); animation: pulsePromo 2s infinite; position: relative; z-index: 999;
+    }
+    @keyframes pulsePromo { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .promo-banner span { background: #fff; color: var(--brand); padding: 3px 10px; border-radius: 5px; margin: 0 5px; display: inline-block; transform: scale(1.1); }
+
+    .page-header { background: linear-gradient(rgba(11,19,32,0.8), rgba(11,19,32,0.9)), url('images/hero-bg.jpg') center/cover; padding: 100px 20px; text-align: center; border-bottom: 4px solid var(--brand); }
+    .page-header h1 { font-size: 45px; color: var(--brand); font-weight: 900; margin-bottom: 10px; }
+    .page-header p { font-size: 20px; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+
+    .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+    
+    /* تصميم كروت المناطق */
+    .areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .area-card { background: var(--card-bg); padding: 30px 20px; border-radius: 12px; text-align: center; border: 1px solid rgba(255, 69, 0, 0.1); transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;}
+    .area-card:hover { transform: translateY(-10px); border-color: var(--brand); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .area-card i.main-icon { font-size: 40px; color: var(--brand); margin-bottom: 20px; }
+    .area-card h3 { font-size: 22px; margin-bottom: 15px; font-weight: 800;}
+    .area-card p { font-size: 15px; color: var(--text-light); line-height: 1.6; margin-bottom: 25px;}
+    
+    /* زراير الاتصال داخل الكارت */
+    .area-actions { display: flex; gap: 10px; justify-content: center; margin-top: auto; }
+    .area-btn { flex: 1; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; color: #fff; font-size: 15px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;}
+    .btn-call-area { background: var(--brand); border: 2px solid var(--brand); }
+    .btn-call-area:hover { background: transparent; color: var(--brand); }
+    .btn-wa-area { background: #25D366; border: 2px solid #25D366; }
+    .btn-wa-area:hover { background: transparent; color: #25D366; }
+
+    /* البادجات */
+    .hub-badge { position: absolute; top: 15px; right: -35px; background: var(--brand); color: #fff; padding: 5px 40px; transform: rotate(45deg); font-weight: bold; font-size: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .discount-badge { position: absolute; top: 15px; left: -35px; background: #25D366; color: #fff; padding: 5px 40px; transform: rotate(-45deg); font-weight: 900; font-size: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.5); z-index: 2; }
+
+    footer { background: #050a12; padding: 30px 5%; border-top: 3px solid var(--brand); text-align: center; color: var(--text-light); margin-top: 50px;}
+
+    /* الأزرار العائمة للطوارئ */
+    .floating-buttons { position: fixed; left: 20px; bottom: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; align-items: flex-start;}
+    .float-btn { height: 60px; border-radius: 50px; display: flex; justify-content: center; align-items: center; color: #fff; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.5); transition: 0.3s; border: 2px solid rgba(255,255,255,0.2);}
+    .float-wa { width: 60px; font-size: 28px; background: #25D366; }
+    .float-call { padding: 0 25px; font-size: 22px; background: var(--brand); font-weight: 900; gap: 10px; }
+    .float-call span { direction: ltr; letter-spacing: 1px; }
+    .float-btn:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.8);}
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">winch-<span>enqaz</span>.com</a>
+   <nav>
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="about.html">👨‍💼 من نحن</a>
+      <a href="services.html">🚛 خدماتنا</a>
+      <a href="areas.html">📍 المناطق التي نغطيها</a>
+      <a href="prices.html">💰 الأسعار</a>
+      <a href="gallery.html">🖼 معرض الأعمال</a>
+      <a href="reviews.html">⭐ آراء العملاء</a>
+      <a href="faq.html">❓ الأسئلة الشائعة</a>
+      <a href="contact.html">💬 تواصل معنا</a>
+      <a href="tel:01037426603" class="nav-btn">📞 اتصل الآن</a>
+    </nav>
+  </header>
+
+  <!-- شريط الخصم المضيء -->
+  <div class="promo-banner">
+    🔥 عرض حصري لفترة محدودة: <span>خصم 35%</span> لأول 100 عميل في كل منطقة! ⏳
+  </div>
+
+  <div class="page-header">
+    <h1>أينما كنت.. أسطولنا يحيط بك</h1>
+    <p>غرفة عمليات "المستشار" تدير أسطولاً ضخماً متمركزاً في النقاط الاستراتيجية والمدن الجديدة والمحاور السريعة لضمان الوصول إليك في وقت قياسي.</p>
+  </div>
+
+  <div class="container">
+    <div class="areas-grid">
+      
+      <!-- كارت 1 -->
+      <div class="area-card">
+        <div class="hub-badge">نقطة تمركز</div>
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-city main-icon"></i>
+        <h3>العاشر من رمضان وضواحيها</h3>
+        <p>تغطية فورية وشاملة لمدينة العاشر من رمضان بالكامل، والمناطق الصناعية، والطرق المؤدية إليها بأوناش مجهزة للتدخل السريع.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 2 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-map-pin main-icon"></i>
+        <h3>مدينة الزقازيق</h3>
+        <p>تغطية شاملة لقلب محافظة الشرقية، مدينة الزقازيق والقرى والمراكز المجاورة لها، لتقديم خدمات الإنقاذ السريع بأعلى كفاءة.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 3 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-road-circle-check main-icon"></i>
+        <h3>طريق مصر الإسماعيلية الصحراوي</h3>
+        <p>دوريات إنقاذ مستمرة على طريق الإسماعيلية للتعامل الفوري مع أعطال السفر السريع وحوادث الطرق الطويلة بمنتهى الاحترافية.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 4 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-road-spikes main-icon"></i>
+        <h3>طريق السويس الصحراوي</h3>
+        <p>تغطية كاملة لطريق السويس لضمان سرعة الوصول لكافة المسافرين ومركبات النقل الثقيل والملاكي المعطلة.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 5 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-building-flag main-icon"></i>
+        <h3>العاصمة الإدارية الجديدة</h3>
+        <p>تمركزات استراتيجية لخدمة العاصمة الإدارية وطرقها الذكية بأحدث الأوناش التي تليق بمستوى المدينة وزوارها.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 6 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-map-location-dot main-icon"></i>
+        <h3>التجمع والقاهرة الجديدة</h3>
+        <p>أوناشنا جاهزة على مدار الساعة لتغطية التجمع الخامس، التجمع الأول، شارع التسعين، وكافة أحياء القاهرة الجديدة.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 7 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-tree-city main-icon"></i>
+        <h3>مدينتي الشروق والعبور</h3>
+        <p>فرق إنقاذ مخصصة لمدينتي الشروق والعبور للتدخل السريع وإنقاذ السيارات المعطلة على الفور بأمان تام.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 8 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-building-user main-icon"></i>
+        <h3>مدينة بدر والروبيكي</h3>
+        <p>أقرب ونش إليك في مدينة بدر وطريق الروبيكي، جاهزون لرفع ونقل سيارتك أو معداتك بسرعة قياسية.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- كارت 9 -->
+      <div class="area-card">
+        <div class="discount-badge">خصم 35%</div>
+        <i class="fa-solid fa-route main-icon"></i>
+        <h3>الطريق الدائري والإقليمي</h3>
+        <p>نقاط ربط وتمركز على المحاور الرئيسية والدائرية لسرعة الوصول وإنقاذ السيارات لتفادي الزحام.</p>
+        <div class="area-actions">
+          <a href="tel:01037426603" class="area-btn btn-call-area"><i class="fa-solid fa-phone"></i> اتصال</a>
+          <a href="https://wa.me/201037426603" class="area-btn btn-wa-area"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 جميع الحقوق محفوظة لمنظومة المستشار (winch-enqaz.com) للإنقاذ السريع.</p>
+  </footer>
+
+  <!-- الأزرار العائمة للطوارئ -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/201037426603" class="float-btn float-wa" target="_blank" title="تواصل واتساب">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:01037426603" class="float-btn float-call" title="اتصل الآن">
+      <i class="fa-solid fa-phone"></i> <span dir="ltr">01037426603</span>
+    </a>
+  </div>
+
+</body>
+</html>
